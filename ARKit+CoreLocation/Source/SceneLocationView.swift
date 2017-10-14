@@ -417,7 +417,7 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
                 //Scale it to be an appropriate size so that it can be seen
                 scale = Float(adjustedDistance) * 0.181
                 
-                if distance > 3000 {
+                if distance > 5000 {
                     scale = scale * 0.75
                 }
                 

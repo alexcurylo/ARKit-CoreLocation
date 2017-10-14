@@ -64,12 +64,24 @@ class ViewController: UIViewController, MKMapViewDelegate, SceneLocationViewDele
         if displayDebugging {
             sceneLocationView.showFeaturePoints = true
         }
+
+        // Grand Palace
+        // https://www.google.co.th/maps/place/The+Grand+Palace/@13.7519777,100.4994185,15z/data=!4m12!1m6!3m5!1s0x0:0xd3afc595623c5249!2sPathumwan+Resort!8m2!3d13.7547399!4d100.5342351!3m4!1s0x0:0xc7c8e2e28e73a435!8m2!3d13.7500308!4d100.4912889
+
+        // Pathumwan Resort
+        //https://www.google.co.th/maps/place/Pathumwan+Resort/@13.7564231,100.5338021,17z/data=!4m5!3m4!1s0x0:0xd3afc595623c5249!8m2!3d13.7547399!4d100.5342351
         
-        //Currently set to Canary Wharf
-        let pinCoordinate = CLLocationCoordinate2D(latitude: 51.504607, longitude: -0.019592)
-        let pinLocation = CLLocation(coordinate: pinCoordinate, altitude: 236)
+        // Victory Monument
+        let pinCoordinate = CLLocationCoordinate2D(latitude: 13.764917, longitude: 100.53827)
+        let pinLocation = CLLocation(coordinate: pinCoordinate, altitude: 50)
         let pinImage = UIImage(named: "pin")!
         let pinLocationNode = LocationAnnotationNode(location: pinLocation, image: pinImage)
+        
+        // seems to jump to user location if we allow default true
+        pinLocationNode.continuallyAdjustNodePositionWhenWithinRange = false
+        pinLocationNode.continuallyUpdatePositionAndScale = false
+        pinLocationNode.scaleRelativeToDistance = false
+
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: pinLocationNode)
         
         view.addSubview(sceneLocationView)
